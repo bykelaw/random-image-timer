@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    </title>
+</head>
+<body>
+  <style>
+      body{
+      margin: 0;
+      }
+    main{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url(./3.jpg);
+      transition: 3s all;
+    }
+    .centered{
+      display: flex;
+      justify-content: space-between;
+     width: 60%;
+      height: 150px;
+    }
+    .col{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-family: sans-serif;
+      justify-content: space-between;
+      width: 22%;
+
+    }
+    .large{
+      font-size:60px;
+      font-weight: 700;
+      background-color: white;
+      border-radius: 5px;
+      height: 68%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .small{
+      background-color: white;
+      font-size: 20px;
+      font-weight: 700;
+      height: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+    }
+    .line{
+      position: absolute;
+      width: 100%;
+      background-color: black;
+      height: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .line::before{
+      content:'';
+      display:block;
+      height: 15px;
+      width: 10px;
+      background-image: radial-gradient(circle at 1px 1px,#5d5d40,white);
+    }
+    .line::after{
+      content:'';
+      display:block;
+      height: 15px;
+      width: 10px;
+      background-image: radial-gradient(circle at 1px 1px,#5d5d40,white);
+    }
+
+    @media (max-width:850px){
+      .centered{
+        width: 80%;
+      }
+    }
+
+    @media (max-width:620px){
+      .centered{
+        width: 90%;
+      }
+    }
+
+    @media (max-width:550px){
+      .large{
+        font-size: 40px;
+      }
+      .small{
+        font-size: 16px;
+      }
+      .centered{
+        width: 80%;
+      }
+    }
+
+  
+  </style>
+        <main>
+          <div class="centered">
+            <div class="col">
+              <span class="large">
+                <span class="day">05</span>
+                <div class="line"></div>
+              </span>
+              
+              <span class="small">DAY</span>
+            </div>
+            <div class="col">
+              <span class="large">
+                <span class="hour">13</span>
+                <div class="line"></div>
+              </span>
+              
+              <span class="small">HOURS</span>
+            </div>
+            <div class="col">
+              <span class="large">
+                <span class="minute">27</span>
+                <div class="line"></div>
+              </span>
+              
+              <span class="small">MINUTES</span>
+            </div>
+            <div class="col">
+              <span class="large">
+                <span class="second">42</span>
+                <div class="line"></div>
+              </span>
+              
+              <span class="small">SECONDS</span>
+            </div>
+          </div>
+        </main>
+<script>
+    const day = document.querySelector('.day')
+    const hour = document.querySelector('.hour')
+    const minute = document.querySelector('.minute')
+    const second = document.querySelector('.second')
+    const background = document.querySelector('main')
+    const timeChanger = ()=>{
+      setInterval(
+        ()=>{
+          day.textContent=new Date().getDay();
+          hour.textContent=new Date().getHours();
+          minute.textContent=new Date().getMinutes();
+          second.textContent=new Date().getSeconds();
+        }
+        ,500)
+    }
+    timeChanger()
+    const imageChanger = ()=>{
+      setInterval(
+        ()=>{
+            
+            background.style.backgroundImage = `url('${Math.floor(Math.random()*40 + 1)}.jpg')`
+      }
+      ,3000)
+    } 
+    imageChanger();
+</script>
+</body>
+</html>
